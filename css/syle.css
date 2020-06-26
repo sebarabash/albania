@@ -109,7 +109,7 @@ select {
 .top-menu {
   background-color: #ffffff;
   position: fixed;
-  top: -100%;
+  top: -150%;
   left: 0;
   display: -webkit-box;
   display: -ms-flexbox;
