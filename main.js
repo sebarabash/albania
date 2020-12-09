@@ -1,12 +1,4 @@
-// =================== SECONDARY-HEADER ===============================================
-window.onscroll = function headersecondary() {
-  document.querySelector(".top-header-body-secondary");
-  if (window.pageYOffset > 200) {
-    document.querySelector(".top-header-body-secondary").classList.add("fixed");
-  } else {
-    document.querySelector(".top-header-body-secondary").classList.remove("fixed");
-  }
-};
+
 // ==================== TOP-MENU ======================================================
 
 $(document).ready(function () {
@@ -113,7 +105,7 @@ function sub() {
     $("body").addClass("lock");
     $(".consult").removeClass("consult-active");
 
-    $(".estate-close , .thank-button").click(function (event) {
+    $(".thank-close , .thank-button").click(function (event) {
       $(".thank").removeClass("thank-active");
       $("body").removeClass("lock");
     });
@@ -209,3 +201,23 @@ function esub() {
     });
   }
 }
+
+// =================== SECONDARY-HEADER ===============================================
+
+window.onscroll = function toTop() {
+  document.querySelector(".to-top-btn");
+  if (window.pageYOffset > 200) {
+    document.querySelector(".top-header-body-secondary").classList.add("fixed");
+  } else {
+    document.querySelector(".top-header-body-secondary").classList.remove("fixed");
+  }
+  //================== to-top-function ================================================
+  if (window.pageYOffset > 2000) {
+    document.querySelector(".to-top-btn").classList.add("init");
+  } else {
+    document.querySelector(".to-top-btn").classList.remove("init");
+  }
+  
+};
+
+
