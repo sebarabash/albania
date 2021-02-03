@@ -1,17 +1,31 @@
-
 // ==================== TOP-MENU ======================================================
 
 $(document).ready(function () {
   $(".top-header-menu-button").click(function (event) {
     $(".top-menu").toggleClass("active");
     $("body").toggleClass("lock");
+    if ($(".top-menu").hasClass("active")) {
+      $(".top-header-body-secondary").addClass("fixed");
+      $(".top-header-menu-button").addClass("disable");
+      $(".top-header-menu-button-close").addClass("enable");
+    }
   });
-  $(".top-menu-close").click(function (event) {
+  $(".top-header-menu-button-close, .menu-list-item, .top-menu-close").click(function (event) {
+    event.preventDefault();
     $(".top-menu").removeClass("active");
+    $(".top-header-body-secondary").removeClass("fixed");
+    $(".top-header-menu-button").removeClass("disable");
+    $(".top-header-menu-button-close").removeClass("enable");
     $("body").removeClass("lock");
   });
 });
-
+$(".top-header-logo-link-secondary").click(function () {
+  $(".top-menu").removeClass("active");
+  $(".top-header-body-secondary").removeClass("fixed");
+  $(".top-header-menu-button").removeClass("disable");
+  $(".top-header-menu-button-close").removeClass("enable");
+  $("body").removeClass("lock");
+});
 // ==============================  SHOW MORE ===========================================
 
 $(document).ready(function () {
@@ -204,20 +218,51 @@ function esub() {
 
 // =================== SECONDARY-HEADER ===============================================
 
-window.onscroll = function toTop() {
-  document.querySelector(".to-top-btn");
+window.onscroll = function secondaryHeader() {
   if (window.pageYOffset > 200) {
     document.querySelector(".top-header-body-secondary").classList.add("fixed");
   } else {
     document.querySelector(".top-header-body-secondary").classList.remove("fixed");
   }
   //================== to-top-function ================================================
-  if (window.pageYOffset > 2000) {
+  if (window.pageYOffset > 3000) {
     document.querySelector(".to-top-btn").classList.add("init");
   } else {
     document.querySelector(".to-top-btn").classList.remove("init");
   }
-  
 };
 
+// ////////////////////////////////// spoilers_about /////////////////////////////////////
 
+$(document).ready(function () {
+  $(".spoiler_about").click(function (event) {
+    if ($(window).width() < 600) {
+      if ($(".about").hasClass("one")) {
+        $(".spoiler_about").not($(this)).removeClass("open");
+        $(".spoiler_about_text").not($(this).next()).slideUp(400);
+      }
+      $(this).toggleClass("open").next().slideToggle(400);
+    }
+  });
+});
+
+// ////////////////////////////////// spoilers_albania /////////////////////////////////////
+
+$(document).ready(function () {
+  $(".card-title").click(function (event) {
+    if ($(window).width() < 600) {
+      if ($(".albania").hasClass("one")) {
+        $(".card-title").not($(this)).removeClass("albania_open");
+        $(".albania-items-card").removeClass("card_open");
+        $(".spoiler_albania_text").not($(this).next()).slideUp(400);
+      }
+      $(this).toggleClass("albania_open").next().slideToggle(400);
+      if($(this).hasClass("albania_open")){
+        $(this).parent().addClass("card_open");
+      }else{
+        $(this).parent().removeClass("card_open");
+      }
+      
+    }
+  });
+});
