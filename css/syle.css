@@ -3047,6 +3047,7 @@ select {
   .top-menu {
     height: 100vh;
     z-index: 1;
+    overflow-y: auto;
   }
   .top-menu-left {
     display: none;
@@ -3155,7 +3156,7 @@ select {
 /*====================== top_menu ================================*/
 @media (max-width: 600px) {
   .new-objects {
-    padding: 35px 0 0 0;
+    padding: 35px 0 1px 0;
     height: auto;
   }
   .new-container {
@@ -3174,6 +3175,12 @@ select {
   .items-card {
     width: 100%;
     margin-bottom: 20px;
+  }
+  .last-top {
+    margin-bottom: 38px;
+  }
+  .last-bottom {
+    margin-bottom: 0;
   }
   .card-discription {
     padding: 20px 23px 30px;
@@ -3283,12 +3290,21 @@ select {
     width: 29px;
     height: 4px;
   }
+  .show-more {
+    display: none;
+  }
+  .opened {
+    display: block;
+  }
+  .hide {
+    display: none;
+  }
   .new-objects-show-more {
     font-size: 16px;
     width: 152px;
     height: 24px;
-    padding: 0;
-    margin: 38px auto 70px;
+    padding: 0 0 70px;
+    margin: 0 auto;
     line-height: 24px;
     text-align: center;
     color: #0f0f0f;
@@ -3467,8 +3483,10 @@ select {
 /*====================== consult ================================*/
 @media (max-width: 600px) {
   .consult {
-    padding: 91px 15px 0;
+    padding: 91px 15px 30px;
     width: 100%;
+    height: 100vh;
+    overflow-y: auto;
   }
   .consult-form {
     width: 100%;
@@ -3620,13 +3638,15 @@ select {
 /*====================== consult ================================*/
 @media (max-width: 600px) {
   .thank {
-    padding: 149px 15px 0;
+    padding: 149px 15px 30px;
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    height: 100vh;
+    overflow-y: auto;
   }
   .thank-title {
     font-size: 28px;
